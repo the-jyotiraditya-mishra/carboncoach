@@ -7,10 +7,13 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-    origin: ["http://localhost:5173", "http://localhost:5174"],
-    credentials: true,
+    origin: [
+        "http://localhost:5173",
+        "http://localhost:5174",
+        "https://YOUR-VERCEL-URL.vercel.app"
+    ],
+    credentials: true
 }));
-app.use(express.json());
 
 const ai = new GoogleGenAI({
     apiKey: process.env.GEMINI_API_KEY,
